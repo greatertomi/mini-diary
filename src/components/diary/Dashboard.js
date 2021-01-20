@@ -1,7 +1,8 @@
 import React from 'react';
 import NoteCard from "./NoteCard";
 import { RiBookletLine } from "react-icons/ri";
-import NoteDetail from "./NoteDetail";
+// import NoteDetail from "./NoteDetail";
+import CreateNote from "./CreateNote";
 
 const Dashboard = () => {
   return (
@@ -21,7 +22,8 @@ const Dashboard = () => {
         <NoteCard />
       </div>
       <div className='col-md-8'>
-        <NoteDetail />
+        {/*<NoteDetail />*/}
+        <CreateNote />
       </div>
     </div>
   );

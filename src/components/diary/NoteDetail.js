@@ -1,11 +1,12 @@
 import React from 'react';
+import {AiOutlineEdit} from 'react-icons/ai'
 
 const NoteDetail = () => {
   return (
     <div className='card noteDetail'>
       <div className='card-body'>
         <div className='date'>Wednesday, February 25, 2020</div>
-        <h2 className='mb-3'>Starting writing in my journal</h2>
+        <h2 className='mb-4 mt-1'>Starting writing in my journal</h2>
         <div>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -20,7 +21,7 @@ const NoteDetail = () => {
             qui recusandae soluta veritatis, vero voluptas!
           </div>
           <div>
-
+            <AiOutlineEdit className='editIcon'/>
           </div>
         </div>
       </div>

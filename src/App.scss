@@ -47,3 +47,17 @@ $primary-color: #518DD0;
     color: #6B6A6A;
   }
 }
+
+.editIcon {
+  position: absolute;
+  color: #3e3e3e;
+  font-size: 30px;
+  cursor: pointer;
+  bottom: 10px;
+  right: 15px;
+  &:hover {
+    font-size: 40px;
+    transition: font-size 0.5s ease-out;
+    color: #2d2d2d;
+  }
+}
