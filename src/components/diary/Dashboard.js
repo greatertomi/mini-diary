@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import NoteCard from "./NoteCard";
 import { RiBookletLine } from "react-icons/ri";
-// import NoteDetail from "./NoteDetail";
+import NoteDetail from "./NoteDetail";
 import CreateNote from "./CreateNote";
 
 const Dashboard = () => {
+  const [showEditor, setShowEditor] = useState(false)
+
+  const handleNoteEdit = (value) => {
+    console.log(value)
+    setShowEditor(value)
+  }
+
   return (
     <div className='row mt-5 px-4'>
       <div className='col-md-4'>
@@ -22,8 +29,9 @@ const Dashboard = () => {
         <NoteCard />
       </div>
       <div className='col-md-8'>
-        {/*<NoteDetail />*/}
-        <CreateNote />
+        {showEditor ?
+          <CreateNote saveNote={handleNoteEdit} /> :
+          <NoteDetail handleEdit={handleNoteEdit}/>}
       </div>
     </div>
   );
