@@ -1,15 +1,19 @@
-import './App.scss';
+import React from "react";
+import {BrowserRouter, Route} from "react-router-dom";
 
-const App = () => {
-  return (
+import './App.scss';
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Dashboard from "./components/diary/Dashboard";
+
+const App = () => (
+  <BrowserRouter>
     <div>
-      <h1>Electron App</h1>
-      <div>
-        Building something that will last.
-      </div>
-      <button className='btn btn-primary'>Login</button>
+      <Route path='/' exact component={Dashboard} />
+      <Route path='/login' exact component={Login} />
+      <Route path='/register' exact component={Register} />
     </div>
-  );
-}
+  </BrowserRouter>
+);
 
 export default App;

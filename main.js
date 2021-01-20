@@ -1,11 +1,21 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
+const windowStateKeeper = require('electron-window-state');
+
+let win;
 
 function createWindow() {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+  const mainWindowState = windowStateKeeper({
+    defaultWidth: 1000,
+    defaultHeight: 800
+  })
+
+  win = new BrowserWindow({
+    x: mainWindowState.x,
+    y: mainWindowState.y,
+    width: mainWindowState.width,
+    height: mainWindowState.height,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true
@@ -17,6 +27,8 @@ function createWindow() {
       ? 'http://localhost:3000'
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
+
+  mainWindowState.manage(win)
 }
 
 app.whenReady().then(createWindow);
