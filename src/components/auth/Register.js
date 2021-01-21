@@ -31,6 +31,13 @@ const Register = () => {
         variant: 'success'
       })
     })
+    ipcRenderer.on('user:registerFailed', () => {
+      setAlert({
+        show: true,
+        message: 'User registration failed',
+        variant: 'danger'
+      })
+    })
   }
 
   return (

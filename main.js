@@ -32,16 +32,9 @@ function createWindow() {
   mainWindowState.manage(win)
 }
 
-/*auth.getUsers().then((res) => {
-  console.log(res)
-}).catch(err => {
-  console.log(err)
-})*/
-
 app.whenReady().then(createWindow);
 
 ipcMain.on('user:register', (e, formData) => {
-  console.log('formData', formData)
   auth.createUser(formData).then(() => {
     win.webContents.send('user:registerSuccess')
   }).catch(err => {
