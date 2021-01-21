@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import NoteCard from "./NoteCard";
 import { RiBookletLine } from "react-icons/ri";
+// import NoSelectedNote from "./NoSelectedNote";
 import NoteDetail from "./NoteDetail";
 import CreateNote from "./CreateNote";
 
@@ -29,6 +30,7 @@ const Dashboard = () => {
         <NoteCard />
       </div>
       <div className='col-md-8'>
+        {/*<NoSelectedNote />*/}
         {showEditor ?
           <CreateNote saveNote={handleNoteEdit} /> :
           <NoteDetail handleEdit={handleNoteEdit}/>}

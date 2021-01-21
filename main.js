@@ -1,7 +1,9 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 const windowStateKeeper = require('electron-window-state');
+
+const auth = require('./handlers/auth');
 
 let win;
 
@@ -17,8 +19,7 @@ function createWindow() {
     width: mainWindowState.width,
     height: mainWindowState.height,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: true
+      nodeIntegration: true
     }
   });
 
@@ -31,7 +32,23 @@ function createWindow() {
   mainWindowState.manage(win)
 }
 
+/*auth.getUsers().then((res) => {
+  console.log(res)
+}).catch(err => {
+  console.log(err)
+})*/
+
 app.whenReady().then(createWindow);
+
+ipcMain.on('user:register', (e, formData) => {
+  console.log('formData', formData)
+  auth.createUser(formData).then(() => {
+    win.webContents.send('user:registerSuccess')
+  }).catch(err => {
+    console.log(err)
+    win.webContents.send('user:registerFailed')
+  })
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

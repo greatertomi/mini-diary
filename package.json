@@ -13,6 +13,8 @@
     "electron-is-dev": "^1.2.0",
     "electron-window-state": "^5.0.3",
     "is-hotkey": "^0.2.0",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
     "node-sass": "4.14.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",

@@ -62,7 +62,7 @@ $primary-color: #518DD0;
   }
 }
 
-.editorDiv .btn-dark {
+.editorDiv button {
   cursor: pointer;
   transform: translateY(100%);
 }
@@ -79,4 +79,12 @@ $primary-color: #518DD0;
     position: absolute;
     transform: translateY(100%);*/
   }
+}
+
+.noNoteSelected {
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
 }

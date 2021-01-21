@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {BsBookmarkCheck} from 'react-icons/bs'
+import {GiCancel} from 'react-icons/gi'
 
 const CreateNote = ({saveNote}) => {
   const [text, setText] = useState('')
@@ -39,6 +40,9 @@ const CreateNote = ({saveNote}) => {
       <div>
         <button className='btn btn-dark float-right mt-1' onClick={handleSave}>
           <BsBookmarkCheck fontSize={20}/> Save
+        </button>
+        <button className='btn btn-danger float-right mt-1 mr-2' onClick={handleSave}>
+          <GiCancel fontSize={20}/> Cancel
         </button>
       </div>
     </div>
